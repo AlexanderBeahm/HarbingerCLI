@@ -1,0 +1,14 @@
+So we need to do a few things to expand past this base thing.
+- Root options menu
+	- Authorization/Authentication
+	- Configuration
+	- OpenAI API Tools List
+- Help menu capabilities with standard -h/manfile interface.
+- Command line capabilities with options to target the varius OpenAI Tools and their root commands
+- Commands w/ options to support OpenAI API endpoints and features.
+- Default options tuning for free tier users
+- Create functions to translate OpenAI API responses into output.
+- Output formatting in chat-friendly dialogue format.
+- Error messaging/handling
+- CI/CD pipeline to generate pip package, deploy executable binaries/artifacts
+- GitHub pages accessing the vault as deployed documentation/devblog.
