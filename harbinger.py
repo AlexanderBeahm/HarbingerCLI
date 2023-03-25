@@ -2,7 +2,7 @@ import click
 from dotenv import load_dotenv
 import os
 import openai
-from chatgpt import test
+from chatgpt import menu, send_chat
 
 BUFFER_CHAR = ">\t"
 
@@ -22,7 +22,7 @@ def cli():
     while(True):
         command = input(BUFFER_CHAR)
         if(command.strip() == "CHAT"):
-            test()
+            menu()
         if(command.strip() == "GOODBYE"):
             exit(code=0)
         #TODO More processing here
