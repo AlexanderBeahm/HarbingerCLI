@@ -55,9 +55,9 @@ def menu():
     openai.api_key = os.environ.get("OPENAI_API_KEY")
     
     while(True):
-        print("Active Chat Conversations:")
-        for conversation in active_conversations():
-            print(conversation)
+        # print("Active Chat Conversations:")
+        # for conversation in active_conversations():
+        #     print(conversation)
         command = input(BUFFER_CHAR)
         if(command.strip() == "MENU"):
             return
