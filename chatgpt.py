@@ -27,7 +27,7 @@ def send_chat(input, existing_messages = []):
         messages= existing_messages
     )
     
-    print(">HARBINGER:\t")
+    print("HARBINGER", BUFFER_CHAR)
     print(response.get("choices")[0].message.content)
     
     existing_messages.append({"role": "assistant", "content": response.get("choices")[0].message.content})

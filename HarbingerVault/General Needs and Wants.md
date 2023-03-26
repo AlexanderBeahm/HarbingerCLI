@@ -12,3 +12,6 @@ So we need to do a few things to expand past this base thing.
 - Error messaging/handling
 - CI/CD pipeline to generate pip package, deploy executable binaries/artifacts
 - GitHub pages accessing the vault as deployed documentation/devblog.
+- Containerization, including compose for any other dependencies.
+- Local ES container for storage of queries.
+- 
