@@ -1,0 +1,2 @@
+- colorama: text formatting/coloring
+- curses: CLI navigation support/commands
