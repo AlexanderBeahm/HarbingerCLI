@@ -14,4 +14,5 @@ So we need to do a few things to expand past this base thing.
 - GitHub pages accessing the vault as deployed documentation/devblog.
 - Containerization, including compose for any other dependencies.
 - Local ES container for storage of queries.
-- 
+- "Live" looking chat. Currently it just waits for response and blurts out everything at once. Would be nice to have a more interactive interface.
+- Cleaner formatting of chat, including text highlights and animations.

@@ -16,17 +16,20 @@ def cli():
     # if(len(args) > 0):
     #     pass
     
-    load_dotenv()
-    openai.api_key = os.environ.get("OPENAI_API_KEY")
-    
-    while(True):
-        command = input(BUFFER_CHAR)
-        if(command.strip() == "CHAT"):
-            menu()
-        if(command.strip() == "GOODBYE"):
-            exit(code=0)
-        #TODO More processing here
-    pass
+    try:
+        load_dotenv()
+        openai.api_key = os.environ.get("OPENAI_API_KEY")
+
+        while(True):
+            command = input(BUFFER_CHAR)
+            if(command.strip() == "CHAT"):
+                menu()
+            if(command.strip() == "GOODBYE"):
+                exit(code=0)
+            #TODO More processing here
+        pass
+    except:
+        print("Server error occurred, shutting down.")
     
 if __name__ == '__main__':
     cli()

@@ -1,0 +1,8 @@
+services:
+  harbinger:
+    image: harbinger/cli-v0.0.1:alpha
+    volumes:
+      - ./data:/home/app_user/data
+    build: .
+    stdin_open: true
+    tty: true
