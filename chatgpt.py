@@ -34,18 +34,11 @@ def send_chat(input, existing_messages = []):
     
     return existing_messages
     
-def test_list():
-    return [{
-            "role": "system", "content": "Welcome to Harbinger. Assuming direct control.",
-            "role": "user", "content": """I am wanting to build a new OpenAI CLI in Python. 
-            I'm currently coding it actually, how do you feel about being interfaced with this way?"""
-        }]
-    
 def default_list():
     return [{
           "role": "system", "content": "Welcome to Harbinger."
     }]
-
+    
 def active_conversations():
     return ["Test"]
 

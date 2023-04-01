@@ -1,0 +1,3 @@
+- ES/DB sidecar?
+	- Most likely need to store both conversation history and configuration somehow. 
+	- Local file makes more sense?

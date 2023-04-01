@@ -30,6 +30,10 @@ def cli():
         pass
     except:
         print("Server error occurred, shutting down.")
+        
+@click.command("chat")
+def chat():
+    menu()
     
 if __name__ == '__main__':
     cli()
