@@ -1,6 +1,7 @@
 import openai
 from dotenv import load_dotenv
 import os
+import vaultprovider
 BUFFER_CHAR = ">\t"
 
 # Load your API key from an environment variable or secret management service
@@ -17,11 +18,13 @@ def test():
     print("Response:")
     print(response.get("choices")[0].message.content)
     
-def send_chat(input, existing_messages = []):
+def send_chat(input = [], existing_messages = []):
     if(len(existing_messages) < 1):
         existing_messages = default_list()
-    
-    existing_messages.append({"role": "user", "content": input})
+        
+    for message in input:
+        existing_messages.append(message)
+        
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages= existing_messages
@@ -42,6 +45,10 @@ def default_list():
 def active_conversations():
     return ["Test"]
 
+
+def build_vault():
+    return vaultprovider.load_path()
+
 def menu():
     active_conversation = []
     load_dotenv()
@@ -58,7 +65,9 @@ def menu():
             test()
         if(command.strip() == "GOODBYE"):
             exit(code=0)
-        active_converation = send_chat(command, active_conversation)
+        if(command.strip() == "BUILD"):
+            send_chat(build_vault(), active_conversation)
+        active_conversation = send_chat([{"role": "user", "content": command}], active_conversation)
         
         #TODO More processing here
     pass
