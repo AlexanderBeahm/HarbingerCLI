@@ -4,20 +4,6 @@ import os
 import vaultprovider
 BUFFER_CHAR = ">\t"
 
-# Load your API key from an environment variable or secret management service
-def test():
-    print("Welcome to Harbinger. Assuming direct control.")
-    
-    print("TestMessage: I am wanting to build a new OpenAI CLI in Python. I'm currently coding it actually, how do you feel about being interfaced with this way?")
-    
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages= test_list()
-    )
-    
-    print("Response:")
-    print(response.get("choices")[0].message.content)
-    
 def send_chat(input = [], existing_messages = []):
     if(len(existing_messages) < 1):
         existing_messages = default_list()
@@ -61,8 +47,6 @@ def menu():
         command = input(BUFFER_CHAR)
         if(command.strip() == "MENU"):
             return
-        if(command.strip() == "TEST"):
-            test()
         if(command.strip() == "GOODBYE"):
             exit(code=0)
         if(command.strip() == "BUILD"):
