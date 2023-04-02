@@ -51,7 +51,8 @@ def menu():
             exit(code=0)
         if(command.strip() == "BUILD"):
             send_chat(build_vault(), active_conversation)
-        active_conversation = send_chat([{"role": "user", "content": command}], active_conversation)
+        else:
+            active_conversation = send_chat([{"role": "user", "content": command}], active_conversation)
         
         #TODO More processing here
     pass
