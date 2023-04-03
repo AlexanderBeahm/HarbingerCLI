@@ -50,7 +50,7 @@ def menu():
         if(command.strip() == "GOODBYE"):
             exit(code=0)
         if(command.strip() == "BUILD"):
-            send_chat(build_vault(), active_conversation)
+            active_conversation = send_chat(build_vault(), active_conversation)
         else:
             active_conversation = send_chat([{"role": "user", "content": command}], active_conversation)
         

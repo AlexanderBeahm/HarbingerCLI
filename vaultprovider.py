@@ -30,7 +30,7 @@ def load_path():
          continue
      
     messages.append({
-            "role": "system", "content": "There are no more markdown files. Can you please echo how many files have been processed?"
+            "role": "system", "content": "There are no more markdown files. Can you please echo how many files have been processed and also summarize the processed files?"
             })
      
     return messages
