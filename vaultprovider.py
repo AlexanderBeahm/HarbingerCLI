@@ -15,24 +15,30 @@ def load_path():
             }
         ]
     
-    for file in os.listdir(DEFAULT_PATH):
-     filename = os.fsdecode(file)
-     relative_path = os.path.join(DEFAULT_PATH, filename)
-     if filename.endswith(".md"): 
-         # print(os.path.join(directory, filename)) 
-        with open(relative_path, 'r') as file:
-            data = file.read().replace('\n', '')
-            message = create_message(data, filename, relative_path)
-            messages.append(message[0])
-            messages.append(message[1])
-        continue
-     else:
-         continue
+    messages = loop(DEFAULT_PATH, messages)
      
     messages.append({
             "role": "system", "content": "There are no more markdown files. Can you please echo how many files have been processed and also summarize the processed files?"
             })
      
+    return messages
+
+def loop(path, messages):
+    for file in os.listdir(path):
+        filename = os.fsdecode(file)
+        relative_path = os.path.join(path, filename)
+        if filename.endswith(".md"): 
+         # print(os.path.join(directory, filename)) 
+            with open(relative_path, 'r') as file:
+                data = file.read().replace('\n', '')
+                message = create_message(data, filename, relative_path)
+                messages.append(message[0])
+                messages.append(message[1])
+            continue
+        elif os.path.isdir(relative_path):
+            loop(relative_path, messages)
+        else:
+         continue
     return messages
 
 def create_message(file_content, file_name, relative_path):
